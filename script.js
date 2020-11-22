@@ -1,5 +1,5 @@
 //look at the speedreader to figure out popping up new window
-
+//need to write an array of questions for the div
 var body = document.body;
 var score = 0
 var Div1 = document.createElement("div")
@@ -29,10 +29,11 @@ Div1.appendChild(button1)
 function pageTwo(){
     P1.style.visibility = "hidden";
     Title.style.visibility = "hidden";
-    var div2 = document.createElement("div");
-    div2.setAttribute("style", "margin:auto; width:50%; text-align:center;");
-    div2.textContent = "Commonly used datatypes do not include ___";
-    div2.style.visibility = "visible";
+
+    Div1.setAttribute("style", "margin:auto; width:50%; text-align:center;");
+    //change this to a part of the questions array
+    Div1.textContent = "Commonly used datatypes do not include ___";
+    Div1.style.visibility = "visible";
 
 
 
