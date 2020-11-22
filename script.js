@@ -1,35 +1,53 @@
+//look at the speedreader to figure out popping up new window
+
 var body = document.body;
+var score = 0
+var Div1 = document.createElement("div")
+var Title = document.createElement("h1");
+var P1 = document.createElement("p");
+var button1 = document.createElement("button");
 
-//header p_1
-var h1P1 = document.createElement("h1");
-h1P1.textContent = "Coding Quiz";
-body.appendChild(h1P1);
+body.appendChild(Div1)
 
-//paragraph p_1
+//Title attributes
+Title.textContent = "Coding Quiz"
+Title.setAttribute("style", "margin:auto; width:50%; text-align:center;");
+Div1.appendChild(Title)
 
-var p1P1 = document.createElement("p");
-p1P1.textContent =  "blahlalskdlaksjdlaskjd laksjdlaksjdlakjsdlskjdhfglskjdfhlksajdhflksajdhflskjdhflksajhdflkasjhdflkasjhdflkasjhdflksadjh";
-body.appendChild(p1P1);
+//P attributes
+P1.textContent = "Click Start Quiz to begin."
+P1.setAttribute("style", "margin:auto; width:50%; text-align:center;");
+Div1.appendChild(P1)
 
+//Button Attributes
 
-//button one
-var buttonP1 = document.createElement("button")
-buttonP1.textContent = "Start Quiz"
-buttonP1.addEventListener("click", pageTwo);
-body.appendChild(buttonP1);
+button1.textContent = "Start Quiz"
+button1.setAttribute("style", " display:flex; align-items:center; justify-content:center;");
+button1.addEventListener("click", pageTwo);
+Div1.appendChild(button1)
 
 function pageTwo(){
-    
-    var div2 =  document.createElement('div');
+    P1.style.visibility = "hidden";
+    Title.style.visibility = "hidden";
+    var div2 = document.createElement("div");
+    div2.setAttribute("style", "margin:auto; width:50%; text-align:center;");
     div2.textContent = "Commonly used datatypes do not include ___";
-        //   giv that div an id of two
-        div2.setAttribute("id", "two");
-        //   append the new div to the dom
-          this.parentNode.appendChild(div2);
-        //   remove the clicked div
-          this.parentNode.removeChild(this);
-        
-    body.appendChild(div2);
+    div2.style.visibility = "visible";
+
+
+
+
+
+
+    Div1.appendChild(div2);
 }
 
       
+
+
+//change this
+function setScore() {
+  localStorage.setItem("highscore", score);
+  localStorage.setItem("highscoreName",  document.getElementById('name').value);
+  getScore();
+}
