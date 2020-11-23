@@ -6,10 +6,12 @@ var Div1 = document.createElement("div")
 var Title = document.createElement("h1");
 var P1 = document.createElement("p");
 var button1 = document.createElement("button");
-
+var questionForm = document.getElementById("Question_Choices");
+var headerQTwo = 
 body.appendChild(Div1)
 
 //Title attributes
+questionForm.style.visibility = "hidden";
 Title.textContent = "Coding Quiz"
 Title.setAttribute("style", "margin:auto; width:50%; text-align:center;");
 Div1.appendChild(Title)
@@ -30,11 +32,16 @@ function pageTwo(){
     P1.style.visibility = "hidden";
     Title.style.visibility = "hidden";
 
+    questionForm.style.visibility = "visible";
+
     Div1.setAttribute("style", "margin:auto; width:50%; text-align:center;");
     //change this to a part of the questions array
-    Div1.textContent = "Commonly used datatypes do not include ___";
-    Div1.style.visibility = "visible";
+var headerQTwo = document.createElement("h1");
 
+    headerQTwo.textContent = "Commonly used datatypes do not include ___";
+    Div1.style.visibility = "visible";
+    Div1.appendChild(questionForm);
+    Div1.appendChild(headerQTwo);
 
 
 
