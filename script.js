@@ -2,60 +2,48 @@
 //need to write an array of questions for the div
 var body = document.body;
 var score = 0
-var Div1 = document.createElement("div")
-var Title = document.createElement("h1");
-var P1 = document.createElement("p");
-var button1 = document.createElement("button");
-var questionForm = document.getElementById("Question_Choices");
-var headerQTwo = 
-body.appendChild(Div1)
+var questionTitle = document.getElementById("Questiontitle");
+var questionContent = document.getElementById("Questioncontent");
+var answerOne = document.getElementById("Answer1")
+var answerTwo = document.getElementById("Answer2")
+var answerThree = document.getElementById("Answer3")
+var answerFour = document.getElementById("Answer4")
+var continueButton = document.getElementById("Continue");
+var quizDiv = document.getElementById("Quizdiv");
+var newScore = score
 
-//Title attributes
-questionForm.style.visibility = "hidden";
-Title.textContent = "Coding Quiz"
-Title.setAttribute("style", "margin:auto; width:50%; text-align:center;");
-Div1.appendChild(Title)
+  questionTitle.textContent = "Coding Quiz"
+  questionContent.textContent = "Press continue to start the timer and begin the quiz."
+  continueButton.textContent = "Continue"
+  answerOne.style.visibility = "hidden"
+  answerTwo.style.visibility = "hidden"
+  answerThree.style.visibility = "hidden"
+  answerFour.style.visibility = "hidden"
 
-//P attributes
-P1.textContent = "Click Start Quiz to begin."
-P1.setAttribute("style", "margin:auto; width:50%; text-align:center;");
-Div1.appendChild(P1)
+  continueButton.addEventListener("click", questionOne)
 
-//Button Attributes
+  function questionOne (){
+    continueButton.style.visibility = "hidden"
+    questionTitle.style.visibility = "hidden"
+    questionContent.textContent = "Commonly used datatypes do not include ___."
+    answerOne.style.visibility = "visible"
+    answerOne.textContent = "1. String"
+    answerTwo.style.visibility = "visible"
+    answerTwo.textContent = "2. Booleans"
+    answerThree.style.visibility = "visible"
+    answerThree.textContent = "3. Alerts"
+    answerFour.style.visibility = "visible"
+    answerFour.textContent = "4. Numbers"
+    answerOne.addEventListener("click", questionTwo)
+    answerTwo.addEventListener("click", questionTwo)
+    answerThree.addEventListener("click", questionTwo)
+    answerFour.addEventListener("click", questionTwo)
+  } 
+function questionTwo (){
+  questionContent.textContent = "The condition of an if / else statement is enclosed within _______. "
+  answerOne.textContent = "1. Quotes"
+  answerTwo.textContent = "2. Curly Braces"
+  answerThree.textContent = "3. Parenthesis"
+  answerFour.textContent = "4. Square Brackets"
 
-button1.textContent = "Start Quiz"
-button1.setAttribute("style", " display:flex; align-items:center; justify-content:center;");
-button1.addEventListener("click", pageTwo);
-Div1.appendChild(button1)
-
-function pageTwo(){
-    P1.style.visibility = "hidden";
-    Title.style.visibility = "hidden";
-
-    questionForm.style.visibility = "visible";
-
-    Div1.setAttribute("style", "margin:auto; width:50%; text-align:center;");
-    //change this to a part of the questions array
-var headerQTwo = document.createElement("h1");
-
-    headerQTwo.textContent = "Commonly used datatypes do not include ___";
-    Div1.style.visibility = "visible";
-    Div1.appendChild(questionForm);
-    Div1.appendChild(headerQTwo);
-
-
-
-
-
-    Div1.appendChild(div2);
-}
-
-      
-
-
-//change this
-function setScore() {
-  localStorage.setItem("highscore", score);
-  localStorage.setItem("highscoreName",  document.getElementById('name').value);
-  getScore();
 }
