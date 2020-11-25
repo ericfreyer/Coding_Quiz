@@ -10,7 +10,7 @@ var answerThree = document.getElementById("Answer3")
 var answerFour = document.getElementById("Answer4")
 var continueButton = document.getElementById("Continue");
 var quizDiv = document.getElementById("Quizdiv");
-var newScore = score
+
 
   questionTitle.textContent = "Coding Quiz"
   questionContent.textContent = "Press continue to start the timer and begin the quiz."
@@ -32,14 +32,20 @@ var newScore = score
     answerTwo.textContent = "2. Booleans"
     answerThree.style.visibility = "visible"
     answerThree.textContent = "3. Alerts"
+
     answerFour.style.visibility = "visible"
     answerFour.textContent = "4. Numbers"
     answerOne.addEventListener("click", questionTwo)
     answerTwo.addEventListener("click", questionTwo)
     answerThree.addEventListener("click", questionTwo)
     answerFour.addEventListener("click", questionTwo)
+   
+    
   } 
+
 function questionTwo (){
+
+
   questionContent.textContent = "The condition of an if / else statement is enclosed within _______. "
   answerOne.textContent = "1. Quotes"
   answerTwo.textContent = "2. Curly Braces"
