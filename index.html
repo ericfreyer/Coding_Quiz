@@ -12,22 +12,28 @@
         <a class="navbar-brand">Coding Quiz</a>
 
       </nav>
-    <div id = "Quizdiv" class="mx-auto" style="width: 500px;">  
+    <div id = "Quizdiv" class="mx-auto" style="width: 500px; list-style-type:none;">  
         <h3 id="Questiontitle"></h3>
         <p id="Questioncontent"></p>
-        <ul style="list-style-type:none;">
-            <li>
-            <button id="Answer1" type="button" class="btn btn-info"></button>
-            </li>
-            <li>
-            <button id="Answer2" type="button" class="btn btn-info"></button>
-            </li>
-            <li>
-            <button id="Answer3" type="button" class="btn btn-info"></button>
-            </li>
-            <li>
-            <button id="Answer4" type="button" class="btn btn-info"></button>
-            </li>
+        <div id = "AnswerBtns">
+            <ul style="list-style-type:none;">
+                <li>
+                <button id="Answer1" type="button" class="btn btn-info AnswerBtn"></button>
+                </li>
+                <br>
+                <li>
+                <button id="Answer2" type="button" class="btn btn-info AnswerBtn"></button>
+                </li>
+                <br>
+                <li>
+                <button id="Answer3" type="button" class="btn btn-info AnswerBtn"></button>
+                </li>
+                <br>
+                <li>
+                <button id="Answer4" type="button" class="btn btn-info AnswerBtn"></button>
+                </li>
+            </ul>
+        </div>
             <li>
             <button id="Continue" type="button" class="btn btn-dark"></button>   
             </li>
