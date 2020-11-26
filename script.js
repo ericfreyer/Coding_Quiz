@@ -67,7 +67,7 @@ function getQuestions(){
 
 
 
-
+questionContent.textContent = Question[currentQuestion].Title;
 var allButton = document.getElementsByClassName("AnswerBtn")
 allButton[0].textContent = Question[currentQuestion].Choices[0];
 allButton[1].textContent = Question[currentQuestion].Choices[1];
@@ -81,9 +81,24 @@ allButton[2].addEventListener('click', checkAnswer);
 allButton[3].addEventListener('click', checkAnswer);
 }
 
-function checkAnswer() {
+function checkAnswer(event) {
 
-      currentQuestion ++;
+  if (event.target.textContent === Question[currentQuestion].Answer) {
+    answerMessage.style.display = 'block';
+    answerMessage.textContent = 'Correct!';
+    answerMessage.className = 'answer-message';
+    currentQuestion ++;
+    score ++; 
+  
+  }else {
+    currentQuestion ++;
+    answerMessage.style.display = 'block';
+    answerMessage.textContent = 'Incorrect!';
+    answerMessage.className = 'answer-message';
+  }
+
+
+getQuestions()
 
 }
       
