@@ -25,6 +25,7 @@ var Question = [
 
 var body = document.body;
 var score = 0
+var questionNum = 0
 var questionTitle = document.getElementById("Questiontitle");
 var questionContent = document.getElementById("Questioncontent");
 var continueButton = document.getElementById("Continue");
@@ -33,7 +34,13 @@ var answerOne = document.getElementById("Answer1");
 var answerTwo = document.getElementById("Answer2");
 var answerThree = document.getElementById("Answer3");
 var answerFour = document.getElementById("Answer4");
-var answerBtns = document.getElementById("AnswerBtns");
+var currentQuestion = 0
+let answerMessage = document.getElementById('answer-message')
+
+
+
+
+
 
   questionTitle.innerHTML = "Coding Quiz"
   questionContent.innerHTML = "Press continue to start the timer and begin the quiz."
@@ -43,22 +50,49 @@ var answerBtns = document.getElementById("AnswerBtns");
   answerThree.style.visibility = "hidden"
   answerFour.style.visibility = "hidden"
 
-  
 
 
 
-  continueButton.addEventListener("click", getQuestions)
+
+continueButton.addEventListener("click", getQuestions);
+
 
 function getQuestions(){
   answerOne.style.visibility = "visible"
   answerTwo.style.visibility = "visible"
   answerThree.style.visibility = "visible"
   answerFour.style.visibility = "visible"
+  continueButton.style.visibility = "hidden"
+  questionTitle.style.visibility = "hidden"
 
-  
-questionTitle.innerHTML = Question[0].Title;
-answerOne.innerHTML = Question[0].Choices[0]
-answerTwo.innerHTML = Question[0].Choices[1]
-answerThree.innerHTML = Question[0].Choices[2]
-answerFour.innerHTML = Question[0].Choices[3]
+
+
+
+var allButton = document.getElementsByClassName("AnswerBtn")
+allButton[0].textContent = Question[currentQuestion].Choices[0];
+allButton[1].textContent = Question[currentQuestion].Choices[1];
+allButton[2].textContent = Question[currentQuestion].Choices[2];
+allButton[3].textContent = Question[currentQuestion].Choices[3];
+
+
+allButton[0].addEventListener('click', checkAnswer);
+allButton[1].addEventListener('click', checkAnswer);
+allButton[2].addEventListener('click', checkAnswer);
+allButton[3].addEventListener('click', checkAnswer);
 }
+
+function checkAnswer() {
+
+      currentQuestion ++;
+
+}
+      
+
+
+
+
+
+
+
+
+
