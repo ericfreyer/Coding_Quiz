@@ -1,21 +1,21 @@
 var Question = [
   {
-    Title: "Commonly used datatypes DO NOT include ________.",
+    Title: "Question 1: Commonly used datatypes DO NOT include ________.",
     Choices: ["Strings", "Booleans", "Alerts", "Numbers"],
     Answer: "Alerts"
   },
   {
-    Title: "The condition of an if / else statement is enclosed within _______.",
+    Title: "Question 2: The condition of an if / else statement is enclosed within _______.",
     Choices: ["Quotes", "Curly Braces", "Parenthesis", "Square Brackets"],
     Answer: "Curly Braces"
   },
   {
-    Title: "Arrays in javascript can be used to store _______.",
+    Title: "Question 3: Arrays in javascript can be used to store _______.",
     Choices: ["Numbers and Strings", "Other Arrays", "Booleans", "All of the Above"],
     Answer: "All of the Above"
   },
   {
-    Title: "String values must be enclosed within _______ when being assigned to variables.",
+    Title: "Question 4: String values must be enclosed within _______ when being assigned to variables.",
     Choices: ["Commas", "Curly Braces", "Quotes", "Parenthesis"],
     Answer: "Commas"
   }
@@ -24,7 +24,9 @@ var Question = [
 
 
 var body = document.body;
-var score = 0
+var Score = document.getElementById("Score");
+var scoreValue = 0
+Score.textContent = "Your score: " + scoreValue
 var questionNum = 0
 var questionTitle = document.getElementById("Questiontitle");
 var questionContent = document.getElementById("Questioncontent");
@@ -35,7 +37,11 @@ var answerTwo = document.getElementById("Answer2");
 var answerThree = document.getElementById("Answer3");
 var answerFour = document.getElementById("Answer4");
 var currentQuestion = 0
-let answerMessage = document.getElementById('answer-message')
+var answerMessage = document.getElementById('answer-message')
+var secondsLeft = 71
+var Timer = document.getElementById("Timer")
+
+
 
 
 
@@ -64,7 +70,7 @@ function getQuestions(){
   answerFour.style.visibility = "visible"
   continueButton.style.visibility = "hidden"
   questionTitle.style.visibility = "hidden"
-
+setTime()
 
 
 questionContent.textContent = Question[currentQuestion].Title;
@@ -88,10 +94,11 @@ function checkAnswer(event) {
     answerMessage.textContent = 'Correct!';
     answerMessage.className = 'answer-message';
     currentQuestion ++;
-    score ++; 
+    scoreValue += 1; 
   
   }else {
     currentQuestion ++;
+    scoreValue --;
     answerMessage.style.display = 'block';
     answerMessage.textContent = 'Incorrect!';
     answerMessage.className = 'answer-message';
@@ -103,10 +110,21 @@ getQuestions()
 }
       
 
+function setTime() {
+  var timerInterval = setInterval(function() {
+    secondsLeft--;
+    Timer.textContent = "Time Remaining: " + secondsLeft;
+
+    if(secondsLeft === 0) {
+      clearInterval(timerInterval);
+      sendMessage();
+    }
+
+  }, 1000);
+}
 
 
-
-
+console.log(scoreValue)
 
 
 

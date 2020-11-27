@@ -10,33 +10,42 @@
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand">Coding Quiz</a>
-
-      </nav>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+              <li class="nav-item active">  
+                <a class="nav-link h6" href="#" id = "Timer" style = "display: inline-block; padding-left: 200px;"><span class="sr-only">(current)</span></a>
+              </li>
+              <li class="nav-item active">  
+                <a class="nav-link h6" href="#" id = "Score" style = "display: inline-block;"><span class="sr-only">(current)</span></a>
+              </li>
+            </ul>
+        </div>
+    </nav>
     <div id = "Quizdiv" class="mx-auto" style="width: 500px; list-style-type:none;">  
         <h3 id="Questiontitle"></h3>
         <h4 id="Questioncontent"></h4>
         <div id = "WelcomeScreen">
             <li>
-                <button id="Continue" type="button" class="btn btn-dark"></button>   
+                <button id="Continue" type="button" class="btn btn-dark mx-auto" style="width: 200px;"></button>   
 
             </ul> 
         </div>
-        <div id = "AnswerBtns">
+        <div id = "AnswerBtns" class = "mx-auto">
             <ul style="list-style-type:none;">
                 <li>
-                <button id="Answer1" type="button" class="AnswerBtn"></button>
+                <button id="Answer1" type="button" class="AnswerBtn btn btn-outline-info mx-auto"></button>
                 </li>
-                <br>
+
                 <li>
-                <button id="Answer2" type="button" class="AnswerBtn"></button>
+                <button id="Answer2" type="button" class="AnswerBtn btn btn-outline-info mx-auto"></button>
                 </li>
-                <br>
+
                 <li>
-                <button id="Answer3" type="button" class="AnswerBtn"></button>
+                <button id="Answer3" type="button" class="AnswerBtn btn btn-outline-info mx-auto"></button>
                 </li>
-                <br>
+
                 <li>
-                <button id="Answer4" type="button" class="AnswerBtn"></button>
+                <button id="Answer4" type="button" class="AnswerBtn btn btn-outline-info mx-auto"></button>
                 </li>
             </ul>
             <div id="answer-message"></div>
