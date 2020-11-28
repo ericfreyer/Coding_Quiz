@@ -18,6 +18,11 @@ var Question = [
     Title: "Question 4: String values must be enclosed within _______ when being assigned to variables.",
     Choices: ["Commas", "Curly Braces", "Quotes", "Parenthesis"],
     Answer: "Commas"
+  },
+  {
+    Title: "A very useful tool during development and debugging for printing content to the debugger is:",
+    Choices: ["JavaScript", "terminal/bash", "for loops", "console.log"],
+    Answer: "console.log"
   }
 ]
 
