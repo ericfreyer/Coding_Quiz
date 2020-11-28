@@ -26,7 +26,7 @@ var Question = [
 var body = document.body;
 var Score = document.getElementById("Score");
 var scoreValue = 0
-Score.innerHTML = "Your score: " + scoreValue
+Score.textContent = "Your score: " + scoreValue
 var questionTitle = document.getElementById("Questiontitle");
 var questionContent = document.getElementById("Questioncontent");
 var continueButton = document.getElementById("Continue");
@@ -91,24 +91,28 @@ allButton[3].addEventListener('click', checkAnswer);
 function checkAnswer(event) {
 
   if (event.target.innerHTML === Question[currentQuestion].Answer) {
-    scoreValue++; 
     answerMessage.style.display = 'block';
     answerMessage.textContent = 'Correct!';
     answerMessage.className = 'answer-message';
     currentQuestion ++;
     secondsLeft += 5;
+    scoreValue += 1;
+    Score.textContent = "Your score: " + scoreValue
+
+
     
   
   }else {
     currentQuestion ++;
-    scoreValue --;
+    scoreValue -= 1;
     answerMessage.style.display = 'block';
     answerMessage.textContent = 'Incorrect!';
     answerMessage.className = 'answer-message';
     secondsLeft -= 5;
+    Score.textContent = "Your score: " + scoreValue
   }
-
 getQuestions()
+console.log(scoreValue)
 
 } 
 var timeNonLoop = (function() {
