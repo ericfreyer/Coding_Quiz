@@ -26,8 +26,7 @@ var Question = [
 var body = document.body;
 var Score = document.getElementById("Score");
 var scoreValue = 0
-Score.textContent = "Your score: " + scoreValue
-var questionNum = 0
+Score.innerHTML = "Your score: " + scoreValue
 var questionTitle = document.getElementById("Questiontitle");
 var questionContent = document.getElementById("Questioncontent");
 var continueButton = document.getElementById("Continue");
@@ -38,9 +37,9 @@ var answerThree = document.getElementById("Answer3");
 var answerFour = document.getElementById("Answer4");
 var currentQuestion = 0
 var answerMessage = document.getElementById('answer-message')
-var secondsLeft = 71
+var secondsLeft = 70
 var Timer = document.getElementById("Timer")
-
+Timer.textContent = "Time Remaining: " + secondsLeft;
 
 
 
@@ -61,16 +60,17 @@ var Timer = document.getElementById("Timer")
 
 
 continueButton.addEventListener("click", getQuestions);
-
+continueButton.addEventListener("click", setTime)
 
 function getQuestions(){
+
   answerOne.style.visibility = "visible"
   answerTwo.style.visibility = "visible"
   answerThree.style.visibility = "visible"
   answerFour.style.visibility = "visible"
   continueButton.style.visibility = "hidden"
   questionTitle.style.visibility = "hidden"
-setTime()
+
 
 
 questionContent.textContent = Question[currentQuestion].Title;
@@ -85,16 +85,19 @@ allButton[0].addEventListener('click', checkAnswer);
 allButton[1].addEventListener('click', checkAnswer);
 allButton[2].addEventListener('click', checkAnswer);
 allButton[3].addEventListener('click', checkAnswer);
+
 }
 
 function checkAnswer(event) {
 
-  if (event.target.textContent === Question[currentQuestion].Answer) {
+  if (event.target.innerHTML === Question[currentQuestion].Answer) {
+    scoreValue++; 
     answerMessage.style.display = 'block';
     answerMessage.textContent = 'Correct!';
     answerMessage.className = 'answer-message';
     currentQuestion ++;
-    scoreValue += 1; 
+    secondsLeft += 5;
+    
   
   }else {
     currentQuestion ++;
@@ -102,13 +105,21 @@ function checkAnswer(event) {
     answerMessage.style.display = 'block';
     answerMessage.textContent = 'Incorrect!';
     answerMessage.className = 'answer-message';
+    secondsLeft -= 5;
   }
-
 
 getQuestions()
 
-}
-      
+} 
+var timeNonLoop = (function() {
+  var executed = false;
+  return function() {
+      if (!executed) {
+          executed = true;
+          setTime()
+      }
+  };
+})();
 
 function setTime() {
   var timerInterval = setInterval(function() {
@@ -124,7 +135,7 @@ function setTime() {
 }
 
 
-console.log(scoreValue)
+
 
 
 
