@@ -20,7 +20,7 @@ var Question = [
     Answer: "Commas"
   },
   {
-    Title: "A very useful tool during development and debugging for printing content to the debugger is:",
+    Title: "Question 5: A very useful tool during development and debugging for printing content to the debugger is:",
     Choices: ["JavaScript", "terminal/bash", "for loops", "console.log"],
     Answer: "console.log"
   }
@@ -44,6 +44,7 @@ var currentQuestion = 0
 var answerMessage = document.getElementById('answer-message')
 var secondsLeft = 70
 var Timer = document.getElementById("Timer")
+var continueTwo = document.getElementById("ContinueTwo")
 Timer.textContent = "Time Remaining: " + secondsLeft;
 
 
@@ -59,7 +60,7 @@ Timer.textContent = "Time Remaining: " + secondsLeft;
   answerTwo.style.visibility = "hidden"
   answerThree.style.visibility = "hidden"
   answerFour.style.visibility = "hidden"
-
+  continueTwo.style.visibility = "hidden"
 
 
 
@@ -91,6 +92,9 @@ allButton[1].addEventListener('click', checkAnswer);
 allButton[2].addEventListener('click', checkAnswer);
 allButton[3].addEventListener('click', checkAnswer);
 
+if (currentQuestion == [4]){
+  endGame()
+}
 }
 
 function checkAnswer(event) {
@@ -142,6 +146,12 @@ function setTime() {
 
   }, 1000);
 }
+
+function endGame(){
+continueTwo.style.visibility = "visible"
+  continueButton.addEventListener("click", function(){ 
+    href="index_score.html"
+})}
 
 
 
