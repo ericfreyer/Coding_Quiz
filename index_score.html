@@ -8,14 +8,14 @@
     <title>Todo List</title>
   </head>
   <body>
-    <div class="todos">
-      <form id="todo-form" method="POST">
-        <label for="todo-text">Add your score:</label>
-        <input type="text" placeholder="Add your name to the list" name="todo-text" id="todo-text" />
-        <p style = "float: right;" id = "HighScore"></p>
+    <div class="highscore-div mx-auto" style="display: block; margin-left: auto; margin-right: auto; text-align:center">
+      <form id="highscore-form" method="POST">
+        <label for="highscore-text">Add your score:</label>
+        <input type="text" placeholder="Add your name to the list" name="highscore-text" id="highscore-text" style = "display: inline-block;" />
+        <p id = "HighScore"></p>
       </form>
-      <p>High score Count: <span id="todo-count">0</span></p>
-      <ul id="todo-list"></ul>
+      <p>High score Count: <span id="highscore-count">0</span></p>
+      <ul id="highscore-list"></ul>
     </div>
     <script src="score.js"></script>
   </body>

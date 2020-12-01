@@ -20,6 +20,11 @@ var Question = [
     Answer: "Commas"
   },
   {
+    Title: "Question 5: A very useful tool during development and debugging for printing content to the debugger is:",
+    Choices: ["JavaScript", "terminal/bash", "for loops", "console.log"],
+    Answer: "console.log"
+  },
+  {
     Title: "Press continue to store your score",
     Choices: [],
     Answer: ""
@@ -54,7 +59,7 @@ Timer.textContent = "Time Remaining: " + secondsLeft;
 
 
   questionTitle.innerHTML = "Coding Quiz"
-  questionContent.innerHTML = "Press continue to start the timer and begin the quiz."
+  questionContent.innerHTML = "Welcome to the coding quiz! There are five questions. Every question you guess correctly will add five points to your score and add five seconds to the time, and each wrong answer will take three points away and take five seconds off the timer. Press continue to start the timer and begin the quiz!"
   continueButton.innerHTML = "Continue"
   answerOne.style.visibility = "hidden"
   answerTwo.style.visibility = "hidden"
@@ -92,7 +97,7 @@ allButton[1].addEventListener('click', checkAnswer);
 allButton[2].addEventListener('click', checkAnswer);
 allButton[3].addEventListener('click', checkAnswer);
 
-if (currentQuestion == [4]){
+if (currentQuestion == [5]){
   endGame()
 }
 }
@@ -105,7 +110,7 @@ function checkAnswer(event) {
     answerMessage.className = 'answer-message';
     currentQuestion ++;
     secondsLeft += 5;
-    scoreValue += 1;
+    scoreValue += 3;
     Score.textContent = "Your score: " + scoreValue
 
 
@@ -113,7 +118,7 @@ function checkAnswer(event) {
   
   }else {
     currentQuestion ++;
-    scoreValue -= 1;
+    scoreValue -= 2;
     answerMessage.style.display = 'block';
     answerMessage.textContent = 'Incorrect!';
     answerMessage.className = 'answer-message';
