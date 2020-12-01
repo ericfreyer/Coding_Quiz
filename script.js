@@ -107,12 +107,14 @@ function checkAnswer(event) {
   if (event.target.innerHTML === Question[currentQuestion].Answer) {
     answerMessage.style.display = 'block';
     answerMessage.textContent = 'Correct!';
+    window.setTimeout("closeAnswer();", 3000);
     answerMessage.className = 'answer-message';
     currentQuestion ++;
     secondsLeft += 5;
     scoreValue += 3;
     Score.textContent = "Your score: " + scoreValue
-
+    //not working
+   
 
     
   
@@ -121,10 +123,13 @@ function checkAnswer(event) {
     scoreValue -= 2;
     answerMessage.style.display = 'block';
     answerMessage.textContent = 'Incorrect!';
+    window.setTimeout("closeAnswer();", 3000);
     answerMessage.className = 'answer-message';
     secondsLeft -= 5;
     Score.textContent = "Your score: " + scoreValue
+    
   }
+    
 getQuestions()
 console.log(scoreValue)
 
@@ -171,8 +176,9 @@ continueTwo.style.visibility = "visible"
 
 })}
 
-
-
-
-
+function closeAnswer()
+    {
+        if (answerMessage != null)
+            answerMessage.style.display = "none";
+    }
 
