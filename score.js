@@ -29,7 +29,7 @@ function renderHighScores() {
 }
 
 function init() {
-  var mxq = JSON.parse(localStorage.getItem("highscore-div"));
+  var mxq = JSON.parse(localStorage.getItem("name"));
   if (mxq !== null) {
     highscores = mxq;
   }
