@@ -20,9 +20,9 @@ var Question = [
     Answer: "Commas"
   },
   {
-    Title: "Question 5: A very useful tool during development and debugging for printing content to the debugger is:",
-    Choices: ["JavaScript", "terminal/bash", "for loops", "console.log"],
-    Answer: "console.log"
+    Title: "Press continue to store your score",
+    Choices: [],
+    Answer: ""
   }
 ]
 
@@ -147,18 +147,24 @@ function setTime() {
   }, 1000);
 }
 
+//storing score before last question
 function endGame(){
+  answerOne.style.visibility = "hidden"
+  answerTwo.style.visibility = "hidden"
+  answerThree.style.visibility = "hidden"
+  answerFour.style.visibility = "hidden"
+  var newScoreValue = []
+  newScoreValue.push(scoreValue)
+  localStorage.setItem("Score", JSON.stringify(newScoreValue));
 continueTwo.style.visibility = "visible"
   continueButton.addEventListener("click", function(){ 
     href="index_score.html"
+    
 
-localStorage.setItem(Score, JSON.stringify(scoreValue));
 
 
 
 })}
-
-
 
 
 
