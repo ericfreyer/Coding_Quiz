@@ -8,11 +8,11 @@ var storedScore = JSON.parse(localStorage.getItem("Score"));
 var showScore = document.getElementById("HighScore")
 showScore.textContent = "Your score is " + storedScore + "!";
 
-init();
+getStoredName();
 
-function renderHighScores() {
+function getHighScores() {
   highscoreList.innerHTML = "";
-  highscoreCount.textContent = highscores.length;
+  highscoreCount.textContent = "";
   for (var i = 0; i < highscores.length; i++) {
     var ml = highscores[i];
     var li = document.createElement("li");
@@ -28,12 +28,12 @@ function renderHighScores() {
   }
 }
 
-function init() {
+function getStoredName() {
   var mxq = JSON.parse(localStorage.getItem("name"));
   if (mxq !== null) {
     highscores = mxq;
   }
-  renderHighScores();
+  getHighScores();
 }
 
 function storeHighScores() {
@@ -52,17 +52,16 @@ highscoreForm.addEventListener("submit", function(event) {
   highscores.push(todoText);
   highscoreInput.value = "";
   storeHighScores();
-  renderHighScores();
+  getHighScores();
 });
 
 highscoreList.addEventListener("click", function(event) {
   var element = event.target;
   if (element.matches("button") === true) {
-    // Get its data-index value and remove the todo element from the list
     var index = element.parentElement.getAttribute("data-index");
     highscores.splice(index, 1);
     storeHighScores();
-    renderHighScores();
+    getHighScores();
   }
 });
 

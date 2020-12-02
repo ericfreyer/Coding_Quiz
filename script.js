@@ -35,8 +35,8 @@ var Question = [
 
 var body = document.body;
 var Score = document.getElementById("Score");
-var scoreValue = 0
-Score.textContent = "Your score: " + scoreValue
+var scoreValue = 0;
+Score.textContent = "Your score: " + scoreValue;
 var questionTitle = document.getElementById("Questiontitle");
 var questionContent = document.getElementById("Questioncontent");
 var continueButton = document.getElementById("Continue");
@@ -45,61 +45,61 @@ var answerOne = document.getElementById("Answer1");
 var answerTwo = document.getElementById("Answer2");
 var answerThree = document.getElementById("Answer3");
 var answerFour = document.getElementById("Answer4");
-var currentQuestion = 0
-var answerMessage = document.getElementById('answer-message')
-var secondsLeft = 70
-var Timer = document.getElementById("Timer")
-var continueTwo = document.getElementById("ContinueTwo")
+var currentQuestion = 0;
+var answerMessage = document.getElementById('answer-message');
+var secondsLeft = 70;
+var Timer = document.getElementById("Timer");
+var continueTwo = document.getElementById("ContinueTwo");
 Timer.textContent = "Time Remaining: " + secondsLeft;
 
 
 
 
-
-
-
-  questionTitle.innerHTML = "Coding Quiz"
-  questionContent.innerHTML = "Welcome to the coding quiz! There are five questions. Every question you guess correctly will add five points to your score and add five seconds to the time, and each wrong answer will take three points away and take five seconds off the timer. Press continue to start the timer and begin the quiz!"
-  continueButton.innerHTML = "Continue"
-  answerOne.style.visibility = "hidden"
-  answerTwo.style.visibility = "hidden"
-  answerThree.style.visibility = "hidden"
-  answerFour.style.visibility = "hidden"
-  continueTwo.style.visibility = "hidden"
+  questionTitle.innerHTML = "Coding Quiz";
+  questionContent.innerHTML = "Welcome to the coding quiz! There are five questions. Every question you guess correctly will add five points to your score and add five seconds to the time, and each wrong answer will take three points away and take five seconds off the timer. Press continue to start the timer and begin the quiz!";
+  continueButton.innerHTML = "Continue";
+  answerOne.style.visibility = "hidden";
+  answerTwo.style.visibility = "hidden";
+  answerThree.style.visibility = "hidden";
+  answerFour.style.visibility = "hidden";
+  continueTwo.style.visibility = "hidden";
 
 
 
 
 continueButton.addEventListener("click", getQuestions);
-continueButton.addEventListener("click", setTime)
+continueButton.addEventListener("click", setTime);
 
 function getQuestions(){
 
-  answerOne.style.visibility = "visible"
-  answerTwo.style.visibility = "visible"
-  answerThree.style.visibility = "visible"
-  answerFour.style.visibility = "visible"
-  continueButton.style.visibility = "hidden"
-  questionTitle.style.visibility = "hidden"
+  answerOne.style.visibility = "visible";
+  answerTwo.style.visibility = "visible";
+  answerThree.style.visibility = "visible";
+  answerFour.style.visibility = "visible";
+  continueButton.style.visibility = "hidden";
+  questionTitle.style.visibility = "hidden";
 
 
 
-questionContent.textContent = Question[currentQuestion].Title;
-var allButton = document.getElementsByClassName("AnswerBtn")
-allButton[0].textContent = Question[currentQuestion].Choices[0];
-allButton[1].textContent = Question[currentQuestion].Choices[1];
-allButton[2].textContent = Question[currentQuestion].Choices[2];
-allButton[3].textContent = Question[currentQuestion].Choices[3];
+  questionContent.textContent = Question[currentQuestion].Title;
+  var allButton = document.getElementsByClassName("AnswerBtn");
+  allButton[0].textContent = Question[currentQuestion].Choices[0];
+  allButton[1].textContent = Question[currentQuestion].Choices[1];
+  allButton[2].textContent = Question[currentQuestion].Choices[2];
+  allButton[3].textContent = Question[currentQuestion].Choices[3];
 
 
-allButton[0].addEventListener('click', checkAnswer);
-allButton[1].addEventListener('click', checkAnswer);
-allButton[2].addEventListener('click', checkAnswer);
-allButton[3].addEventListener('click', checkAnswer);
 
-if (currentQuestion == [5]){
-  endGame()
-}
+  allButton[0].addEventListener('click', checkAnswer);
+  allButton[1].addEventListener('click', checkAnswer);
+  allButton[2].addEventListener('click', checkAnswer);
+  allButton[3].addEventListener('click', checkAnswer);
+
+
+
+  if (currentQuestion == [5]){
+    endGame();
+  }
 }
 
 function checkAnswer(event) {
@@ -112,11 +112,8 @@ function checkAnswer(event) {
     currentQuestion ++;
     secondsLeft += 5;
     scoreValue += 3;
-    Score.textContent = "Your score: " + scoreValue
-    //not working
-   
+    Score.textContent = "Your score: " + scoreValue;
 
-    
   
   }else {
     currentQuestion ++;
@@ -126,14 +123,13 @@ function checkAnswer(event) {
     window.setTimeout("closeAnswer();", 3000);
     answerMessage.className = 'answer-message';
     secondsLeft -= 5;
-    Score.textContent = "Your score: " + scoreValue
+    Score.textContent = "Your score: " + scoreValue;
     
-  }
-    
-getQuestions()
-console.log(scoreValue)
-
+  } 
+  getQuestions();
 } 
+
+
 var timeNonLoop = (function() {
   var executed = false;
   return function() {
@@ -142,7 +138,8 @@ var timeNonLoop = (function() {
           setTime()
       }
   };
-})();
+});
+
 
 function setTime() {
   var timerInterval = setInterval(function() {
@@ -151,34 +148,28 @@ function setTime() {
 
     if(secondsLeft === 0) {
       clearInterval(timerInterval);
-      sendMessage();
+      endGame();
     }
-
   }, 1000);
 }
 
-//storing score before last question
+
 function endGame(){
-  answerOne.style.visibility = "hidden"
-  answerTwo.style.visibility = "hidden"
-  answerThree.style.visibility = "hidden"
-  answerFour.style.visibility = "hidden"
-  var newScoreValue = []
-  newScoreValue.push(scoreValue)
+  answerOne.style.visibility = "hidden";
+  answerTwo.style.visibility = "hidden";
+  answerThree.style.visibility = "hidden";
+  answerFour.style.visibility = "hidden";
+  var newScoreValue = [];
+  newScoreValue.push(scoreValue);
   localStorage.setItem("Score", JSON.stringify(newScoreValue));
-continueTwo.style.visibility = "visible"
+  continueTwo.style.visibility = "visible";
   continueButton.addEventListener("click", function(){ 
-    href="index_score.html"
-    
+    href="index_score.html";
+  })
+}
 
-
-
-
-})}
-
-function closeAnswer()
-    {
-        if (answerMessage != null)
-            answerMessage.style.display = "none";
-    }
-
+function closeAnswer(){
+  if (answerMessage != null){
+    answerMessage.style.display = "none"
+  }
+}

@@ -3,18 +3,17 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <link rel="stylesheet" href="./style.css" />
-    <title>Coding Quiz</title>
+    <title>Coding Quiz Score Sheet</title>
   </head>
-  <body>
-    <div class="highscore-div mx-auto" style="display: block; margin-left: auto; margin-right: auto; text-align:center">
+  <body style = "margin-top: 10%;">
+    <div class="highscore-div" style="display: block; margin-left: auto; margin-right: auto; text-align:center; border: black solid 1px; width: 33%;">
       <form id="highscore-form" method="POST">
         <label for="highscore-text">Add your score:</label>
-        <input type="text" placeholder="Add your name to the list" name="highscore-text" id="highscore-text" style = "display: inline-block;" />
+        <input type="text" placeholder="Add your name to the high score list" name="highscore-text" id="highscore-text" style = "display: inline-block; width: 48%; margin-top: 2%;" />
         <p id = "HighScore"></p>
       </form>
-      <p>High score Count: <span id="highscore-count">0</span></p>
+      <p>List of Scores: <span id="highscore-count"></span></p>
       <ul id="highscore-list"></ul>
     </div>
     <script src="score.js"></script>
