@@ -8,46 +8,44 @@ var storedScore = JSON.parse(localStorage.getItem("Score"));
 var showScore = document.getElementById("HighScore")
 showScore.textContent = "Your score is " + storedScore + "!";
 
-
 getStoredName();
-
 
 function getHighScores() {
   highscoreList.innerHTML = "";
   highscoreCount.textContent = "";
   for (var i = 0; i < highscores.length; i++) {
-    var highIndex = highscores[i];
-    var listItem = document.createElement("li");
-    listItem.textContent = highIndex;
-    listItem.setAttribute("data-index", i);
-    listItem.style.listStyleType = "none"
-    var buttonDel = document.createElement("button");
-    buttonDel.textContent = "Delete";
-    li.appendChild(buttonDel);
-    highscoreList.appendChild(listItem);
+    var ml = highscores[i];
+    var li = document.createElement("li");
+    li.textContent = ml;
+    li.setAttribute("data-index", i);
+    li.style.listStyleType = "none"
+
+    var button = document.createElement("button");
+    button.textContent = "Delete";
+
+    li.appendChild(button);
+    highscoreList.appendChild(li);
   }
 }
 
-
 function getStoredName() {
-  var getName = JSON.parse(localStorage.getItem("name"));
-  if (getName !== null) {
-    highscores = getName;
+  var name = JSON.parse(localStorage.getItem("name"));
+  if (name !== null) {
+    highscores = name;
   }
   getHighScores();
 }
 
-
 function storeHighScores() {
 
   localStorage.setItem("name", JSON.stringify(highscores));
-
 }
-
 
 highscoreForm.addEventListener("submit", function(event) {
   event.preventDefault();
-  var scoreText = (highscoreInput.value) + "'s score is: " + storedScore;
+
+  var scoreText = (highscoreInput.value.trim()) + "'s score is: " + storedScore;
+
   if (scoreText === "") {
     return;
   }
@@ -56,7 +54,6 @@ highscoreForm.addEventListener("submit", function(event) {
   storeHighScores();
   getHighScores();
 });
-
 
 highscoreList.addEventListener("click", function(event) {
   var element = event.target;
@@ -67,7 +64,3 @@ highscoreList.addEventListener("click", function(event) {
     getHighScores();
   }
 });
-
-
-
-
