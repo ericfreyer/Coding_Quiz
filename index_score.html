@@ -6,11 +6,11 @@
     <link rel="stylesheet" href="./style.css" />
     <title>Coding Quiz Score Sheet</title>
   </head>
-  <body style = "margin-top: 10%;">
-    <div class="highscore-div" style="display: block; margin-left: auto; margin-right: auto; text-align:center; border: black solid 1px; width: 33%;">
+  <body id = "score-body">
+    <div class="highscore-div" id = "score-div">
       <form id="highscore-form" method="POST">
         <label for="highscore-text">Add your score:</label>
-        <input type="text" placeholder="Add your name to the high score list" name="highscore-text" id="highscore-text" style = "display: inline-block; width: 48%; margin-top: 2%;" />
+        <input type="text" placeholder="Add your name" name="highscore-text" id="highscore-text"/>
         <p id = "HighScore"></p>
       </form>
       <p>List of Scores: <span id="highscore-count"></span></p>

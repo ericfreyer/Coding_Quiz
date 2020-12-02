@@ -1,6 +1,6 @@
 var Question = [
   {
-    Title: "Question 1: Commonly used datatypes DO NOT include ________.",
+    Title: "Question 1: Commonly used data-types DO NOT include ________.",
     Choices: ["Strings", "Booleans", "Alerts", "Numbers"],
     Answer: "Alerts"
   },

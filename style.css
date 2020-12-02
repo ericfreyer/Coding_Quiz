@@ -1,3 +1,18 @@
-body{
-    background-image: url('https://cdn.shopify.com/s/files/1/0500/6165/products/neutral_allisonsquare_576x.jpg?v=1571438804');
+#score-div{
+    border: black solid 1px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align:center;
+    width: 33%;
+}
+
+#score-body{
+    margin-top: 10%;  
+}
+
+#highscore-text{
+    display: inline-block; 
+    width: 48%; 
+    margin-top: 2%;
 }
