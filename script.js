@@ -97,9 +97,9 @@ function getQuestions(){
 
   if (currentQuestion == [5]){
     endGame();
+    storeScore();
   }
 }
-
 
 function checkAnswer(event) {
 
@@ -128,7 +128,6 @@ function checkAnswer(event) {
   getQuestions();
 } 
 
-
 var timeNonLoop = (function() {
   var executed = false;
   return function() {
@@ -139,7 +138,6 @@ var timeNonLoop = (function() {
   };
 });
 
-
 function setTime() {
   var timer = setInterval(function() {
     secondsLeft--;
@@ -148,6 +146,7 @@ function setTime() {
     if(secondsLeft === 0) {
       clearInterval(timer);
       endGame();
+      storeScore();
     }
     if(currentQuestion == [5]){
       clearInterval(timer)
@@ -155,19 +154,22 @@ function setTime() {
   }, 1000);
 }
 
-
 function endGame(){
   answerOne.style.visibility = "hidden";
   answerTwo.style.visibility = "hidden";
   answerThree.style.visibility = "hidden";
   answerFour.style.visibility = "hidden";
+  continueTwo.style.visibility = "visible";
+
+  continueTwo.addEventListener("click", function(){ 
+    href="index_score.html";
+  })
+}
+
+function storeScore(){
   var newScoreValue = [];
   newScoreValue.push(scoreValue);
   localStorage.setItem("Score", JSON.stringify(newScoreValue));
-  continueTwo.style.visibility = "visible";
-  continueButton.addEventListener("click", function(){ 
-    href="index_score.html";
-  })
 }
 
 function closeAnswer(){
