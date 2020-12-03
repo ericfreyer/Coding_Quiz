@@ -22,12 +22,14 @@ function getHighScores() {
   for (var i = 0; i < highscores.length; i++) {
     var ml = highscores[i];
     var li = document.createElement("li");
+    highscores.sort()
     li.textContent = ml;
     li.setAttribute("data-index", i);
     li.style.listStyleType = "none"
 
     var button = document.createElement("button");
     button.textContent = "Delete";
+    button.style.marginLeft = "2%";
 
     li.appendChild(button);
     highscoreList.appendChild(li);
@@ -41,15 +43,12 @@ function storeHighScores() {
 
 highscoreForm.addEventListener("submit", function(event) {
   event.preventDefault();
-
   var scoreText = (highscoreInput.value.trim()) + "'s score is: " + storedScore;
-
- 
   highscores.push(scoreText);
   highscoreInput.value = "";
   storeHighScores();
   getHighScores();
-});
+})
 
 highscoreList.addEventListener("click", function(event) {
   var element = event.target;
@@ -59,4 +58,4 @@ highscoreList.addEventListener("click", function(event) {
     storeHighScores();
     getHighScores();
   }
-});
+})

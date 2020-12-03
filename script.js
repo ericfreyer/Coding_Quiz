@@ -64,9 +64,8 @@ Timer.textContent = "Time Remaining: " + secondsLeft;
   answerFour.style.visibility = "hidden";
   continueTwo.style.visibility = "hidden";
 
-
-continueButton.addEventListener("click", getQuestions);
-continueButton.addEventListener("click", setTime);
+  continueButton.addEventListener("click", getQuestions);
+  continueButton.addEventListener("click", setTime);
 
 function getQuestions(){
 
@@ -77,8 +76,6 @@ function getQuestions(){
   continueButton.style.visibility = "hidden";
   questionTitle.style.visibility = "hidden";
 
-
-
   questionContent.textContent = Question[currentQuestion].Title;
   var allButton = document.getElementsByClassName("AnswerBtn");
   allButton[0].textContent = Question[currentQuestion].Choices[0];
@@ -86,13 +83,10 @@ function getQuestions(){
   allButton[2].textContent = Question[currentQuestion].Choices[2];
   allButton[3].textContent = Question[currentQuestion].Choices[3];
 
-
-
   allButton[0].addEventListener('click', checkAnswer);
   allButton[1].addEventListener('click', checkAnswer);
   allButton[2].addEventListener('click', checkAnswer);
   allButton[3].addEventListener('click', checkAnswer);
-
 
 
   if (currentQuestion == [5]){
@@ -115,13 +109,13 @@ function checkAnswer(event) {
 
   
   }else {
-    currentQuestion ++;
-    scoreValue -= 2;
     answerMessage.style.display = 'block';
     answerMessage.textContent = 'Incorrect!';
     window.setTimeout("closeAnswer();", 3000);
     answerMessage.className = 'answer-message';
+    currentQuestion ++;
     secondsLeft -= 5;
+    scoreValue -= 2;
     Score.textContent = "Your score: " + scoreValue;
     
   } 
@@ -136,7 +130,7 @@ var timeNonLoop = (function() {
           setTime()
       }
   };
-});
+})
 
 function setTime() {
   var timer = setInterval(function() {
