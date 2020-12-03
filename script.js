@@ -56,15 +56,13 @@ Timer.textContent = "Time Remaining: " + secondsLeft;
 
 
   questionTitle.innerHTML = "Coding Quiz";
-  questionContent.innerHTML = "Welcome to the coding quiz! There are five questions. Every question you guess correctly will add five points to your score and add five seconds to the time, and each wrong answer will take three points away and take five seconds off the timer. Press continue to start the timer and begin the quiz!";
+  questionContent.innerHTML = "Welcome to the coding quiz! There are five questions. Every question you guess correctly will add five points to your score and five seconds to the time, each wrong answer will subtract three points and five seconds off the timer. Press continue to start the timer and begin the quiz!";
   continueButton.innerHTML = "Continue";
   answerOne.style.visibility = "hidden";
   answerTwo.style.visibility = "hidden";
   answerThree.style.visibility = "hidden";
   answerFour.style.visibility = "hidden";
   continueTwo.style.visibility = "hidden";
-
-
 
 
 continueButton.addEventListener("click", getQuestions);
@@ -101,6 +99,7 @@ function getQuestions(){
     endGame();
   }
 }
+
 
 function checkAnswer(event) {
 
@@ -142,13 +141,16 @@ var timeNonLoop = (function() {
 
 
 function setTime() {
-  var timerInterval = setInterval(function() {
+  var timer = setInterval(function() {
     secondsLeft--;
     Timer.textContent = "Time Remaining: " + secondsLeft;
 
     if(secondsLeft === 0) {
-      clearInterval(timerInterval);
+      clearInterval(timer);
       endGame();
+    }
+    if(currentQuestion == [5]){
+      clearInterval(timer)
     }
   }, 1000);
 }
